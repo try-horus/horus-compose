@@ -36,13 +36,15 @@ services:
 # docker tag local-image:tagname new-repo:tagname
 # docker push new-repo:tagname
 
-  ui-frontend:
-    #image: 'tryhorus/ui-frontend:0.1.0'
+  ui-client:
     image: 'tryhorus/ui-client:0.1.1'
-    container_name: ui-frontend
+    container_name: ui-client
     restart: always
     ports:
       - "3000:3000"
+    environment:
+      - UI_SERVER_HOST=ui-server
+      - UI_CLIENT_HOST=ui-client
 
   ui-server:
     image: 'tryhorus/ui-server:0.1.1'
@@ -54,6 +56,13 @@ services:
       - database
     links:
       - database
+    environment:
+      - NODE_ENV=production
+      - POSTGRES_ADMIN=horus_admin
+      - POSTGRES_PASSWORD=horus_admin
+      - DB_CONTAINER_NAME=horus_db
+      - DB_NAME=horus
+      - DB_PORT=5432
 
 volumes:
   db-data:
