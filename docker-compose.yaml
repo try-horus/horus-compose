@@ -38,14 +38,14 @@ services:
 
   ui-frontend:
     #image: 'tryhorus/ui-frontend:0.1.0'
-    image: 'tryhorus/ui-client:0.1.0'
+    image: 'tryhorus/ui-client:0.1.1'
     container_name: ui-frontend
     restart: always
     ports:
       - "3000:3000"
 
   ui-server:
-    image: 'tryhorus/ui-server:0.1.0'
+    image: 'tryhorus/ui-server:0.1.1'
     container_name: ui-server
     ports:
       - "5001:5001"
