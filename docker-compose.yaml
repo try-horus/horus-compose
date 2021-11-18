@@ -1,0 +1,37 @@
+# Specify docker-compose version
+version: "3.8"
+
+services:
+  database:
+    # Build the image from this directory
+    image: 'tryhorus/database:0.1.0'
+    # Specify the host and container port binding
+    ports:
+      - "7002:5432"
+    # Restart the container if it stops (excl. manually) tto avoid downtimes
+    restart: always
+    # Volume location
+    # Container name
+    container_name: horus_db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7002"]
+      interval: 3s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  connector:
+    image: 'tryhorus/connector:0.1.0'
+    container_name: connector
+    ports:
+      - "3002:3002"
+    # Build database before connector
+    depends_on:
+      - database
+    restart: always
+    links:
+      - database
+
+volumes:
+  db-data:
