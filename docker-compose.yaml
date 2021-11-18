@@ -33,11 +33,15 @@ services:
     links:
       - database
 
+# docker tag local-image:tagname new-repo:tagname
+# docker push new-repo:tagname
+
   ui-frontend:
-    image: 'tryhorus/ui-frontend:0.1.0'
+    #image: 'tryhorus/ui-frontend:0.1.0'
+    image: 'tryhorus/ui-client:0.1.0'
     container_name: ui-frontend
     ports:
-      - "5001:5001"
+      - "3000:3000"
 
   ui-server:
     image: 'tryhorus/ui-server:0.1.0'
