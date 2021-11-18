@@ -10,7 +10,6 @@ services:
       - "7002:5432"
     # Restart the container if it stops (excl. manually) tto avoid downtimes
     restart: always
-    # Volume location
     # Container name
     container_name: horus_db
     healthcheck:
@@ -18,6 +17,7 @@ services:
       interval: 3s
       timeout: 5s
       retries: 5
+    # Volume location
     volumes:
       - db-data:/var/lib/postgresql/data
 
@@ -30,6 +30,23 @@ services:
     depends_on:
       - database
     restart: always
+    links:
+      - database
+
+  ui-frontend:
+    image: 'tryhorus/ui-frontend:0.1.0'
+    container_name: ui-frontend
+    ports:
+      - "5001:5001"
+
+  ui-server:
+    image: 'tryhorus/ui-server:0.1.0'
+    container_name: ui-server
+    ports:
+      - "5001:5001"
+    restart: always
+    depends_on:
+      - database
     links:
       - database
 
