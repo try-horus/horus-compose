@@ -4,7 +4,7 @@ version: "3.8"
 services:
   database:
     # Build the image from this directory
-    image: 'tryhorus/database:0.1.0'
+    image: 'tryhorus/database:test'
     # Specify the host and container port binding
     ports:
       - "7002:5432"
@@ -22,7 +22,7 @@ services:
       - db-data:/var/lib/postgresql/data
 
   connector:
-    image: 'tryhorus/connector:0.1.0'
+    image: 'tryhorus/connector:test'
     container_name: connector
     ports:
       - "3002:3002"
@@ -37,7 +37,7 @@ services:
 # docker push new-repo:tagname
 
   ui-client:
-    image: 'tryhorus/ui-client:0.1.1'
+    image: 'tryhorus/ui-client:test'
     container_name: ui-client
     restart: always
     ports:
