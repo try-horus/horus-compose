@@ -4,7 +4,7 @@ version: "3.8"
 services:
   database:
     # Build the image from this directory
-    image: 'tryhorus/database:test'
+    image: 'tryhorus/horus_db:test'
     # Specify the host and container port binding
     ports:
       - "7002:5432"
@@ -42,12 +42,9 @@ services:
     restart: always
     ports:
       - "3000:3000"
-    environment:
-      - UI_SERVER_HOST=ui-server
-      - UI_CLIENT_HOST=ui-client
 
   ui-server:
-    image: 'tryhorus/ui-server:0.1.1'
+    image: 'tryhorus/ui-server:test'
     container_name: ui-server
     ports:
       - "5001:5001"
