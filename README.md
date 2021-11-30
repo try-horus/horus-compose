@@ -126,4 +126,4 @@ This means that when the database container is restarted it can continue working
 - José de la Puente ([LinkedIn](https://www.linkedin.com/in/ja-puente/), [GitHub](https://github.com/14jdelap))
 
 **Madrid**
-- Juan García (LinkedIn, [GitHub](https://github.com/juan-gm))
+- Juan García ([LinkedIn](https://www.linkedin.com/in/juan-garc%C3%ADa-moreno-21bbbb155/), [GitHub](https://github.com/juan-gm))
