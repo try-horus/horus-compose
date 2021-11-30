@@ -119,11 +119,11 @@ This means that when the database container is restarted it can continue working
 ## Team
 
 **Frederick, Maryland**
-- Callie Buruchara (LinkedIn, GitHub)
+- Callie Buruchara ([GitHub](https://github.com/callieburuchara))
 
 **London**
-- Rich Morris (LinkedIn, GitHub)
-- José de la Puente (LinkedIn, GitHub)
+- Rich Morris ([GitHub](https://github.com/richwynmorris))
+- José de la Puente ([LinkedIn](https://www.linkedin.com/in/ja-puente/), [GitHub](https://github.com/14jdelap))
 
 **Madrid**
-- Juan García (LinkedIn, GitHub)
+- Juan García (LinkedIn, [GitHub](https://github.com/juan-gm))
