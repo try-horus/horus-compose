@@ -68,7 +68,7 @@ You can do this by running the Docker daemon and then executing
 git clone https://github.com/try-horus/horus-compose.git && cd horus-compose && docker-compose up
 ```
 
-Horus will now be ready to process, store, and visualize your telemetry data.
+Horus will now be ready to process, store, and visualize your telemetry data. You can access the UI at port 3000. 
 
 ## How Horus works
 
