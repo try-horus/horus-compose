@@ -1,18 +1,17 @@
 ![Horus logo on light small](https://i.ibb.co/2gWkrRh/SMALL-horus-logo-color.png#gh-light-mode-only)
-![Horus logo on black small](https://i.ibb.co/02Fxkjm/SMALL-horus-logo-color-on-dark.png#gh-dark-mode-only)
 
 # Open-source monitoring and observability
 
-Horus is an **open-source APM for small microservices** communicating through HTTP.
+Horus is an open-source **observability** solution for microservices. Users can generate, store, and visualize correlated telemetry data, allowing them to see the real-time health of their application.
 
 It's **an application's heart rate monitor**: it observes how it's behaving and helps you spot anomalies.
 
 Horus is a fullstack APM that's:
-- **Easy to install** because it runs on Docker and uses custom implementation
-- **Easy to use** because of its simple features and use case
-- **Open source**, making it extensible and deployable in any infrastructure
+- **Easy to install**: runs on Docker and uses custom implementation
+- **Easy to use**: simple features
+- **Open source**: extensible and deployable in any infrastructure
 
-[![Version](https://img.shields.io/badge/npm-1.1.0-green)](https://www.npmjs.com/package/horus-agent)
+[![Version](https://img.shields.io/badge/npm-1.2.0-green)](https://www.npmjs.com/package/horus-agent)
 
 ## Table of Contents
 - [Who it's for](#who-its-for)
@@ -34,8 +33,12 @@ Horus was made to monitor microservice applications that have:
 
 *Image with 3 screenshots side by side showing the flow?????*
 
-- Its **metrics summarize** your system's behavior
-- Helps you **identify potential problems** by navigating from unusual metrics to traces
+> ![](https://i.ibb.co/165DGSW/Metrics.png)
+> ![](https://i.ibb.co/kyfRkLH/Single-Trace-Colors.png)
+> ![](https://i.ibb.co/4gRGL0m/Traces-Small.png)
+
+- **Metrics summarize** your system's behavior
+- Helps **identify potential problems** by navigating from metrics to traces
 - **Understand a trace** by visualizing it through its span parts and their information
 
 ## Prerequisites
@@ -43,7 +46,7 @@ Horus was made to monitor microservice applications that have:
 - Running Docker daemon
 - A JavaScript root service to monitor
 
-If your root service isn't in JavaScript, you'll need to manually translate `horus-agent` to your app's language.
+If your root service isn't in JavaScript, you'll need to manually translate `horus-agent` into your app's language.
 
 ## How to set-up Horus
 
@@ -76,7 +79,7 @@ Horus depends on 2 parts:
 1. `horus-agent`: the instrumentation that generates metrics and traces, and sends it to Horus
 2. Horus: the infrastructure that processes, stores, and visualizes telemetry data
 
-*Overall infrastructure diagram	*
+# * Overall infrastructure diagram	needed here *
 
 ### `horus-agent` instrumentation
 
@@ -88,10 +91,8 @@ The `horus-agent` Node package instruments a service automatically to generate a
 
 `index.js`'s instrumentation generates traces, which represent the path of an HTTP request, and 3 types of metrics:
 - Requests per second: when a request is received
-- Request latency: when a request is received
+- Request latency: when a request/response cycle completes
 - Errors per second: when an error is thrown
-
-`horus-agent` queues data in the root service and sends it as a batch at the specified interval because it reduces load on the Horus infrastructure. 
 
 ### Horus infrastructure
 
@@ -101,29 +102,27 @@ The `horus-agent` Node package instruments a service automatically to generate a
 `docker-compose.yaml` defines the components Horus uses and how it executes them when running `docker-compose up`. 
 
 **Images**
-- `connector`: receives, processes, and issues the commands to insert data in the database ([repo](https://github.com/try-horus/horus-db))
-- `docker-db`: creates a TimescaleDB container with the Horus schema ([repo](https://github.com/try-horus/db-docker/tree/master))
-- `server`: handles the client's requests to the database ([repo](https://github.com/try-horus/horus-ui/tree/main/server))
--  `client`: the UI that visualizes data and handles user interactions ([repo](https://github.com/try-horus/horus-ui/tree/main/client))
+- `connector`: receives, processes, and issues the commands to insert data in the database 
+- `docker-db`: creates a TimescaleDB container with the Horus schema 
+- `server`: handles the client's requests to the database 
+- `client`: the UI that visualizes data and handles user interactions 
 
 **Container communication**
 The default Docker network created by `docker-compose` enables containers to communicate between themselves using their container names.
 
-The exceptions are the API calls made by `client` to `server` from the browser to Horus' IP address, which is automatically set by the application code. This is because an API call made from the browser is outside of the Docker network — meaning it can't understand Docker container names and needs explicit IP addresses.
+The exceptions are the API calls made by `client` to `server` from the browser to Horus' IP address, which is automatically set by the application code.
 
 **Data persistance**
-`docker-compose` defines a volume for `docker-db`.
-
-This means that when the database container is restarted it can continue working with the data it had before as long as it accesses the same volume.
+`docker-compose` defines a volume for `docker-db`. When the database container is restarted, it can continue working with the data it had before as long as it accesses the same volume.
 
 ## Team
 
-**Frederick, Maryland**
+**Maryland, USA**
 - Callie Buruchara ([GitHub](https://github.com/callieburuchara))
 
-**London**
+**London, UK**
 - Rich Morris ([GitHub](https://github.com/richwynmorris))
 - José de la Puente ([LinkedIn](https://www.linkedin.com/in/ja-puente/), [GitHub](https://github.com/14jdelap))
 
-**Madrid**
+**Madrid, Spain**
 - Juan García ([LinkedIn](https://www.linkedin.com/in/juan-garc%C3%ADa-moreno-21bbbb155/), [GitHub](https://github.com/juan-gm))
