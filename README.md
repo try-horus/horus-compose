@@ -13,6 +13,9 @@ Horus is a fullstack APM that's:
 
 [![Version](https://img.shields.io/badge/npm-1.2.0-green)](https://www.npmjs.com/package/horus-agent)
 
+### Brief Video Demo
+[![Link to Youtube Video Demo of Horus](https://img.youtube.com/vi/-IrSQNMYBjA/0.jpg)](https://www.youtube.com/watch?v=-IrSQNMYBjA)
+
 ## Table of Contents
 - [Who it's for](#who-its-for)
 - [What Horus does](#what-horus-does)
@@ -30,12 +33,6 @@ Horus was made to monitor microservice applications that have:
 - Basic monitoring and analytic needs
 
 ## What Horus does
-
-*Image with 3 screenshots side by side showing the flow?????*
-
-> ![](https://i.ibb.co/165DGSW/Metrics.png)
-> ![](https://i.ibb.co/kyfRkLH/Single-Trace-Colors.png)
-> ![](https://i.ibb.co/4gRGL0m/Traces-Small.png)
 
 - **Metrics summarize** your system's behavior
 - Helps **identify potential problems** by navigating from metrics to traces
