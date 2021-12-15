@@ -8,7 +8,7 @@ It's **an application's heart rate monitor**: it observes how it's behaving and 
 
 Horus is a fullstack APM that's:
 - **Easy to install**: runs on Docker and uses custom implementation
-- **Easy to use**: simple features
+- **Easy to use**: only includes the features you really need
 - **Open source**: extensible and deployable in any infrastructure
 
 [![Version](https://img.shields.io/badge/npm-1.2.0-green)](https://www.npmjs.com/package/horus-agent)
@@ -26,9 +26,9 @@ Horus is a fullstack APM that's:
 
 ## Who it's for
 
-Horus was made to monitor microservice applications that have:
+Horus was developed to monitor microservice applications that have:
 
-- A root service that centralize service communication
+- A root service that centralizes microservice communication
 - Services communicate mainly through HTTP
 - Basic monitoring and analytic needs
 
@@ -36,7 +36,7 @@ Horus was made to monitor microservice applications that have:
 
 - **Metrics summarize** your system's behavior
 - Helps **identify potential problems** by navigating from metrics to traces
-- **Understand a trace** by visualizing it through its span parts and their information
+- **Understand a trace** by visualizing it through its span segments and their information
 
 ## Prerequisites
 
@@ -50,10 +50,6 @@ If your root service isn't in JavaScript, you'll need to manually translate `hor
 ### Horus instrumentation
 
 [Follow the instructions in the NPM documentation.](https://www.npmjs.com/package/horus-agent)
-
-Note that Horus will not capture any errors in Express because **Express fails silently**. Express returns status codes that match an error but doesn't **throw an error** unless explicitly told to.
-
-Thus, to capture errors in its metrics you'll need to throw them within a middleware or in a route handler. This means that you'll need to define and implement what's an error in your application.
 
 ### Horus infrastructure
 In the server that'll host Horus you'll need to:
