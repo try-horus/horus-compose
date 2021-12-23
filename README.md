@@ -1,4 +1,4 @@
-![Horus logo on light small](https://i.ibb.co/2gWkrRh/SMALL-horus-logo-color.png#gh-light-mode-only)
+![Horus logo on light small](https://i.ibb.co/2gWkrRh/SMALL-horus-logo-color.png)
 
 # Open-source monitoring and observability
 
@@ -72,7 +72,7 @@ Horus depends on 2 parts:
 1. `horus-agent`: the instrumentation that generates metrics and traces, and sends it to Horus
 2. Horus: the infrastructure that processes, stores, and visualizes telemetry data
 
-# * Overall infrastructure diagram	needed here *
+![](https://i.ibb.co/LJqcbmb/generic-whole-horus.png)
 
 ### `horus-agent` instrumentation
 
@@ -88,6 +88,7 @@ The `horus-agent` Node package instruments a service automatically to generate a
 - Errors per second: when an error is thrown
 
 ### Horus infrastructure
+![](https://i.ibb.co/d66RVbZ/horus-docker.png)
 
 **Deploying Horus**
 `horus-compose` (this directory) handles the deployment of the Horus infrastructure.
@@ -111,10 +112,10 @@ The exceptions are the API calls made by `client` to `server` from the browser t
 ## Team
 
 **Maryland, USA**
-- Callie Buruchara ([GitHub](https://github.com/callieburuchara))
+- Callie Buruchara ([LinkedIn](https://www.linkedin.com/in/callie-buruchara/), [GitHub](https://github.com/callieburuchara))
 
 **London, UK**
-- Rich Morris ([GitHub](https://github.com/richwynmorris))
+- Rich Morris ([LinkedIn](https://www.linkedin.com/in/richard-m-66b5b2229/), [GitHub](https://github.com/richwynmorris))
 - José de la Puente ([LinkedIn](https://www.linkedin.com/in/ja-puente/), [GitHub](https://github.com/14jdelap))
 
 **Madrid, Spain**
